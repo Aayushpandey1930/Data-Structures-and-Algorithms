@@ -15,18 +15,37 @@ public:
         //     break;
         //  }
         
-        int n = nums.size();
-        int noo = 0 , no1 = 0, no2 = 0 ;
-        for(int i = 0; i < n; i++){
-            if(nums[i] == 0) noo++;
-            else if (nums[i] == 1) no1++;
-            else  no2++ ;
+        // int n = nums.size();
+        // int noo = 0 , no1 = 0, no2 = 0 ;
+        // for(int i = 0; i < n; i++){
+        //     if(nums[i] == 0) noo++;
+        //     else if (nums[i] == 1) no1++;
+        //     else  no2++ ;
+        // }
+        // for(int i = 0; i < n; i++){
+        //     if(i < noo) nums[i] = 0;
+        //     else if(i < (noo+no1)) nums[i] = 1;
+        //     else nums[i] = 2;
+        // }
+        // return;
+
+        int n  = nums.size();
+        int lo = 0; 
+        int mid = 0;
+        int hi = n - 1;
+
+        while(mid <= hi){
+            if(nums[mid] == 2){
+                swap(nums[mid], nums[hi]);
+                hi--;
+            }
+            else if(nums[mid] == 0){
+                swap(nums[mid], nums[lo]);
+                lo++;
+                mid++;
+            }
+            else {mid++;}
         }
-        for(int i = 0; i < n; i++){
-            if(i < noo) nums[i] = 0;
-            else if(i < (noo+no1)) nums[i] = 1;
-            else nums[i] = 2;
-        }
-        return;
+
     }
 };
